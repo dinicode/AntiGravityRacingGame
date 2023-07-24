@@ -1,43 +1,35 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class AntiGravityRacingGame {
-    public static void simulateRace(List<Vehicle> vehicles) {
-        int raceDuration = 100;
-        int lapsToComplete = 5;
+public class Main {
+    public static void main(String[] args) {
+        List<Vehicle> vehicles = new ArrayList<>();
+        vehicles.add(new Vehicle(" Anti Gravity SkyRacer 1B", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 2B", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer  3Q", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 4Z", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 5I", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 6Y", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 7H", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 8R", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 9U", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 10W", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 11P", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 12J", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 13B", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 14X", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 15N", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 16oS", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 17ED", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 18JT", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 19RV", 100, 10, 5));
+        vehicles.add(new Vehicle("Anti Gravity SkyRacer 20HD", 106, 10, 5));
+        // Add other vehicles...
 
-        for (int time = 1; time <= raceDuration; time++) {
-            for (Vehicle vehicle : vehicles) {
-                int distanceCovered = vehicle.getDistanceCovered(time);
+        // Simulate the race
+        AntiGravityRacingGame.simulateRace(vehicles);
 
-                // Check for a lap completion
-                if (distanceCovered >= (vehicle.getLapsCompleted() + 1) * 200) {
-                    vehicle.completeLap();
-                    System.out.println(vehicle.getName() + " completed lap " + vehicle.getLapsCompleted());
-                }
-
-                // Check for a winner
-                if (vehicle.getLapsCompleted() == lapsToComplete) {
-                    System.out.println(vehicle.getName() + " wins the race!");
-                    return;
-                }
-            }
-        }
-
-        System.out.println("The race ended in a tie!");
-    }
-
-    public static void displayRaceResults(List<Vehicle> vehicles) {
-        // Sort the vehicles based on their final laps completed
-        Collections.sort(vehicles, (v1, v2) -> Integer.compare(v2.getLapsCompleted(), v1.getLapsCompleted()));
-
-        // Display the results
-        System.out.println("Race Results:");
-        int position = 1;
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(position + ". " + vehicle.getName() + " - Laps Completed: " + vehicle.getLapsCompleted());
-            position++;
-        }
+        // Display the race results
+        AntiGravityRacingGame.displayRaceResults(vehicles);
     }
 }
